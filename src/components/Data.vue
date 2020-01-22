@@ -9,7 +9,9 @@
          <button class="delete"
               v-on:click="$emit('remove-text', citation.id)"
          >Удалить</button>
-         <button class="redactor" type="button" v-on:click="$emit('enable-editing',citation)">Редактировать</button>
+         <button class="redactor"
+                 v-on:click="$emit('transform-citation',citation)"
+         >Редактировать</button>
       </span>
    </li>
 </template>
@@ -20,7 +22,7 @@ export default {
       citation: {
          type: Object,
          required: true
-      },
+      }
    }
 }
 </script>

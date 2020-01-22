@@ -8,6 +8,7 @@
             v-if="citations.length"
             v-bind:citations="citations"
             @remove-text="removeText"
+            @transform-citation="transformCitation"
     />
     <p v-else>Пока новостей нет.</p>
   </div>
@@ -33,16 +34,22 @@ export default {
     addCitations(citation) {
       this.citations.push(citation)
     },
-    editMethod(citation) {
-      this.citations = citation
+    transformCitation(citation) {
+      this.citations.title = this.citations.filter
     }
   },
   components: {
     Blog, AddCitations
+  },
+  filters: {
+    capitalize(value) {
+      if (!value) return ''
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1)
+    }
   }
 }
 </script>
 
 <style>
-
 </style>

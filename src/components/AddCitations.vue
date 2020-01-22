@@ -9,7 +9,8 @@
 export default {
     data() {
         return {
-            title: ''
+            title: '',
+            citation: null
         }
     },
     methods: {
@@ -46,4 +47,5 @@ export default {
         display: flex;
         justify-content: flex-end;
     }
+
 </style>

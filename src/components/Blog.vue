@@ -5,7 +5,7 @@
             v-for="citation of citations"
             v-bind:citation ="citation"
             v-on:remove-text="removeText"
-            @enable-editing="enableEditing"
+            v-on:transform-citation="transformCitation"
             />
         </ul>
     </div>
@@ -19,8 +19,9 @@ export default {
         removeText(id) {
             this.$emit('remove-text', id)
         },
-        enableEditing(newVal) {
-            this.$emit('enable-editing', newVal);
+        transformCitation(citation) {
+            console.log(citation.title)
+            this.$emit('transform-citation',citation.title)
         }
     },
     components: {
@@ -35,5 +36,4 @@ export default {
         margin: 0;
         padding: 0;
     }
-
 </style>
