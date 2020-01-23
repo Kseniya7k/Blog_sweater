@@ -9,20 +9,18 @@
 export default {
     data() {
         return {
-            title: '',
-            citation: null
+            title: ''
         }
     },
     methods: {
         OnSubmit() {
             if (this.title.trim()) {
-                const newCitation = {
-                    id: Date.now(),
+                const newPost = {
+                    date: new Date().getTime(),
                     title: this.title,
-                    completed: false
                 }
 
-                this.$emit('add-citations', newCitation)
+                this.$emit('add-post', newPost)
                 this.title = ''
             }
         }

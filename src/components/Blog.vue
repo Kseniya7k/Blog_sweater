@@ -1,31 +1,32 @@
 <template>
     <div>
         <ul>
-            <Data
-            v-for="citation of citations"
-            v-bind:citation ="citation"
+            <Post
+            v-for="post of posts"
+            v-bind:post = "post"
+            v-bind:currentUser = "currentUser"
+            v-bind:key = "post.date"
             v-on:remove-text="removeText"
-            v-on:transform-citation="transformCitation"
+            v-on:transform-post="transformPost"
             />
         </ul>
     </div>
 </template>
 
 <script>
-import Data from '@/components/Data'
+import Post from '@/components/Post'
 export default {
-    props: ['citations'],
+    props: ['posts', 'currentUser'],
     methods: {
-        removeText(id) {
-            this.$emit('remove-text', id)
+        removeText(date) {
+            this.$emit('remove-text', date)
         },
-        transformCitation(citation) {
-            console.log(citation.title)
-            this.$emit('transform-citation',citation.title)
+        transformPost(date, value) {
+            this.$emit('transform-post', date, value)
         }
     },
     components: {
-        Data
+        Post
     }
 }
 </script>

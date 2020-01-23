@@ -1,16 +1,21 @@
 <template>
    <li>
       <span class="person">
-         <strong>{{citation.user}} </strong>
-         <strong>{{citation.data}}</strong>
+         <strong>{{post.user.name}} </strong>
+         <strong>{{new Date(post.date).toLocaleString()}}</strong>
       </span>
-      <strong class="text">{{citation.title}}</strong>
+      <textarea rows="10" cols="195"
+                v-on:change="changHandler"
+                :disabled = "disabled"
+      >{{post.title}}</textarea>
       <span class="button">
          <button class="delete"
-              v-on:click="$emit('remove-text', citation.id)"
+              v-if="currentUser && currentUser.id === post.user.id"
+              v-on:click="$emit('remove-text', post.date)"
          >Удалить</button>
          <button class="redactor"
-                 v-on:click="$emit('transform-citation',citation)"
+                 v-if="currentUser && currentUser.id === post.user.id"
+                 v-on:click="changDisabled"
          >Редактировать</button>
       </span>
    </li>
@@ -18,10 +23,27 @@
 
 <script>
 export default {
+   data() {
+      return {
+         disabled: true
+      }
+   },
    props: {
-      citation: {
+      post: {
          type: Object,
          required: true
+      },
+      currentUser: {
+         type: Object | null,
+         required: true
+      }
+   },
+   methods: {
+      changHandler(event) {
+         this.$emit('transform-post', this.post.date, event.target.value)
+      },
+      changDisabled() {
+         this.disabled = !this.disabled
       }
    }
 }
