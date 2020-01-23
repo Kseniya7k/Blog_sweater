@@ -8,6 +8,7 @@
             v-bind:key = "post.date"
             v-on:remove-text="removeText"
             v-on:transform-post="transformPost"
+            class = "post"
             />
         </ul>
     </div>
@@ -34,7 +35,10 @@ export default {
 <style scoped>
     ul {
         list-style: none;
-        margin: 0;
+        margin: 10px;
         padding: 0;
+    }
+    .post {
+        background: cornflowerblue;
     }
 </style>

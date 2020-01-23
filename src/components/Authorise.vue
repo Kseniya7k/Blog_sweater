@@ -37,6 +37,9 @@ export default {
 </script>
 
 <style>
+    button {
+        padding: 2px;
+    }
     .login {
         margin-right: 5px;
     }
@@ -44,6 +47,6 @@ export default {
         margin-right: 5px;
     }
     .authorise {
-        margin-right: 5px;
+        margin: 5px 5px;
     }
 </style>

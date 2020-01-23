@@ -1,6 +1,6 @@
 <template>
-    <form @submit.prevent="OnSubmit">
-        <input type="text" v-model="title">
+    <form class="add" @submit.prevent="OnSubmit">
+        <input class="add" type="text" v-model="title">
         <button type="submit">Добавить</button>
     </form>
 </template>
@@ -42,8 +42,11 @@ export default {
         height: 30px;
         margin-left: 10px;
         font-weight: bold;
+    }
+    .add {
+        padding-right: 20px;
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
     }
 
 </style>

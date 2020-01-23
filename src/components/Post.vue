@@ -4,7 +4,7 @@
          <strong>{{post.user.name}} </strong>
          <strong>{{new Date(post.date).toLocaleString()}}</strong>
       </span>
-      <textarea rows="10" cols="195"
+      <textarea rows="2" cols="98"
                 v-on:change="changHandler"
                 :disabled = "disabled"
       >{{post.title}}</textarea>
@@ -50,16 +50,31 @@ export default {
 </script>
 
 <style  scoped>
+   @import url('https://fonts.googleapis.com/css?family=Arvo&display=swap');
+
    li {
-      border: 1px solid #ccc;
       padding: .5rem 1rem;
-      margin-bottom: 1rem;
+      margin: 25px;
+      color: white;
+      font-family: 'Arvo', serif;
+      font-size: 23px;
+      border: 5px solid slategrey;
+   }
+   textarea {
+      margin: 10px;
+      resize: none;
+      overflow: auto;
+      background: transparent;
+      border: none;
+      font-size: 25px;
+      color: white;
+      font-family: 'Arvo', serif;
    }
    .person {
       display: flex;
       justify-content: space-between;
       padding: 10px 0 10px 0;
-      margin: 0;
+
    }
    .button {
       display: flex;
@@ -73,8 +88,4 @@ export default {
       font-weight: bold;
       background: palegreen;
    }
-   .text {
-      padding: 20px 0 20px 0;
-   }
-
 </style>
